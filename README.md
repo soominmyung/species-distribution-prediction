@@ -36,37 +36,30 @@ The study demonstrates how spatial autocorrelation can bias model accuracy and h
 
 ---
 
+### 📁 Project Structure  
+```
+├── data/                # occurrence & raster data
+├── outputs/             # result figures & model predictions
+├── R/                   # scripts (preprocessing, modelling, plotting)
+└── README.md
+```
+
+### Data Directory
+
+Place the following files here before running the analysis:
+
+- `Sciurus.csv` – Red squirrel occurrence records
+- `Grey_squirrel_records.csv` – Grey squirrel occurrence records
+- `LCMUK.tif` – UK Land Cover Map raster
+- `Sciurus_SA.shp` – Study area boundary shapefile
+
+*Note: These datasets are not included in the repository due to size and licensing restrictions.*
+
+---
+
 ### 🧠 Insights  
 - Spatial autocorrelation can **inflate predictive accuracy** if ignored.  
 - Spatial CV is essential for realistic model evaluation in ecological studies.  
 - Ecological processes often operate at intermediate spatial scales (~1 km), as shown by the 1200 m optimal buffer.  
 - Machine learning models like RF and SVM, when combined with sound spatial design, provide **interpretable and generalisable** predictions.
 
----
-
-### 📁 Project Structure  
-```
-├── data/                # occurrence & raster data
-├── outputs/             # result figures & model predictions
-├── R/                   # scripts (preprocessing, modelling, plotting)
-├── README.md
-```
-
----
-
-### 🚀 Run Instructions
-```r
-# load packages and set relative paths
-library(here)
-sciurus <- read.csv(here::here("data", "Sciurus.csv"))
-
-# run analysis scripts sequentially
-source("R/00_load.R")
-source("R/10_preprocess.R")
-source("R/20_model_training.R")
-```
-
----
-
-### 🧩 Summary Sentence for CV
-> *Developed a reproducible spatial-machine learning pipeline in R to model species distribution, optimising spatial scale and comparing CV vs spatial CV to address autocorrelation bias.*
