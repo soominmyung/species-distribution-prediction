@@ -39,8 +39,7 @@ The study demonstrates how spatial autocorrelation can bias model accuracy and h
 ### 📁 Project Structure  
 ```
 ├── data/                # occurrence & raster data
-├── outputs/             # result figures & model predictions
-├── R/                   # scripts (preprocessing, modelling, plotting)
+├── code.R               # R script
 └── README.md
 ```
 
