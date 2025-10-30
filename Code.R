@@ -1,9 +1,6 @@
 #GEOG71922:Assignment2
 #Student_ID:11155827
 
-#set working directory
-setwd("C:/Users/msm16/Desktop/Gdrive/Manchester/spacial ecology/cw")
-
 #import packages
 library(sp)         
 library(rgeos)
@@ -18,10 +15,14 @@ library(igraph)
 library(fitdistrplus)    
 library(mlr)
 library(kernlab)
+library(here)
 
 # 1. Read data
 # 1.1. Read sciurus data
-sciurus<- read.csv("Sciurus.csv")
+data_dir <- here::here("data")
+out_path  <- here::here("outputs")
+dir.create(out_path, showWarnings = FALSE)
+sciurus <- read.csv(here::here("data", "Sciurus.csv"))
 head(sciurus)
 class(sciurus)
 
@@ -37,7 +38,7 @@ sciurus<-subset(sciurus, sciurus$Coordinate.uncertainty_m<=1000)
 nrow(sciurus) #6602
 
 # 1.2. Read greysquirrel data
-greysquirrel<- read.csv("Grey_squirrel_records.csv")
+greysquirrel <- read.csv(here::here("data", "Grey_squirrel_records.csv"))
 head(greysquirrel)
 class(greysquirrel)
 
@@ -511,3 +512,4 @@ plot(LCMCrop)
 plot(prd.sciurus.ksvm, add=T, col='red')
 plot(prd.grey.ksvm, add=T, col='blue') #the model predicted 0 grey squirrel
 plot(prd.abs.ksvm, add=T)
+
