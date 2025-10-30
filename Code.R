@@ -70,11 +70,11 @@ crs(greysquirrel.sp)<-"epsg:4326"
 
 #3. Mapping land-cover
 #read in our raster data
-LCM<-rast("LCMUK.tif")
+LCM <- rast(here::here("data", "LCMUK.tif"))
 crs(LCM)
 
 #Read in the .shp file, study area
-studyArea<-readOGR("Sciurus_SA.shp")
+studyArea <- rgdal::readOGR(here::here("data", "Sciurus_SA.shp"))
 
 #Crop the raster
 LCMCrop <- crop(LCM$LCMUK_1, studyArea)
@@ -512,4 +512,5 @@ plot(LCMCrop)
 plot(prd.sciurus.ksvm, add=T, col='red')
 plot(prd.grey.ksvm, add=T, col='blue') #the model predicted 0 grey squirrel
 plot(prd.abs.ksvm, add=T)
+
 
