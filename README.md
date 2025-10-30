@@ -6,7 +6,7 @@ It integrates **GIS-based spatial processing** and **machine learning models** t
 
 The study demonstrates how spatial autocorrelation can bias model accuracy and how **spatial cross-validation (spCV)** provides a more realistic measure of predictive performance compared to standard k-fold CV.
 
-### 🖼 Model Visualisations
+<br>
 
 <p align="center">
   <img src="img/resqdist.png" width="45%">
